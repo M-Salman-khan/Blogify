@@ -1,117 +1,105 @@
-# Blogify 
+# Blogify
 
-<!-- You can add a project logo here, e.g., ![Blogify Logo](public/images/logo.png) -->
-<!-- Replace <YOUR_GITHUB_USERNAME> and <YOUR_REPO_NAME> with your actual GitHub username and repository name. -->
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT) [![Node.js](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen.svg)](https://nodejs.org/) [![pnpm](https://img.shields.io/badge/pnpm-%3E%3D7-blue.svg?logo=pnpm)](https://pnpm.io/)
+<p align="center">
+	<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js Badge" />
+	<img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express Badge" />
+	<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Badge" />
+	<img src="https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=black" alt="EJS Badge" />
+	<img src="https://img.shields.io/badge/Multer-3B82F6?style=for-the-badge" alt="Multer Badge" />
+	<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT Badge" />
+	<img src="https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm Badge" />
+	<img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License Badge" />
+</p>
 
-<!--
-You can add a project logo here if desired. Example:
-![Blogify Logo](public/images/logo.png)
--->
-
-A robust and user-friendly full-stack blogging platform built with Node.js and Express. It empowers users to effortlessly create, publish, and interact with blog posts, featuring secure authentication, rich content creation, and an intuitive interface.
-
----
-
----
+Blogify is a full-stack blogging application built with Node.js, Express, MongoDB, and EJS. It supports user authentication, blog publishing, image uploads, and post comments through a simple server-rendered interface.
 
 ## Table of Contents
 
+- [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Installation](#installation)
+- [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
-- [Run](#run)
+- [Scripts](#scripts)
+- [Usage](#usage)
 - [Screenshots](#screenshots)
-- [Future Improvements](#future-improvements)
-- [Contributing](#contributing)
 - [License](#license)
+
+## Overview
+
+The application uses Express for routing, MongoDB with Mongoose for persistence, and EJS templates for the UI. Authentication is handled with JWTs stored in cookies, and blog cover images are uploaded with Multer into the public uploads folder.
 
 ## Features
 
-- User registration and login
-- JWT-based authentication
-- Secure password hashing
-- Create, edit and publish blog posts
-- Upload blog cover images (Multer)
-- Comment on blog posts
-- Responsive UI with Bootstrap/EJS templates
-- MongoDB (Mongoose) data persistence
+- User signup, signin, and signout
+- JWT-based authentication with cookie support
+- Password hashing with `crypto`
+- Create blog posts with title, body, and cover image
+- View blog detail pages with author information
+- Add comments to blog posts
+- Server-rendered pages using EJS
+- Static asset handling for images, styles, and uploads
 
 ## Tech Stack
 
-- Frontend: HTML, CSS, Bootstrap, EJS
-- Backend: Node.js, Express
-- Database: MongoDB via Mongoose
-- Auth: JWT + Cookies
+- Runtime: Node.js
+- Framework: Express
+- View Engine: EJS
+- Database: MongoDB with Mongoose
+- Auth: JSON Web Tokens and cookies
+- File Uploads: Multer
+- Package Manager: pnpm
 
-## Installation
 
-Clone the repository and install dependencies. This project uses `pnpm` as its package manager, but `npm` can also be used.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18 or newer
+- A MongoDB connection string
+- pnpm installed locally
+
+### Installation
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd "Blogging App"
-
-# Using pnpm (recommended)
+git clone https://github.com/M-Salman-khan/Blogify.git
+cd Blogify
 pnpm install
-
-# Or using npm
-# npm install
 ```
 
-## Environment Variables
+### Environment Variables
 
-Create a `.env` file at the project root with the following values:
+Create a `.env` file in the project root:
 
 ```env
 PORT=8000
-MONGO_URL=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+MONGODB_URL=your_mongodb_connection_string
 ```
 
-## Run
+The current authentication secret is defined in `services/authentication.js`.
 
-Start the app:
+## Scripts
 
 ```bash
-npm start
-# or for development (if you use nodemon)
-npm run dev
+pnpm run dev
+pnpm start
 ```
+
+## Usage
+
+1. Start the development server with `pnpm run dev`.
+2. Open the app in your browser.
+3. Sign up or sign in from the user routes.
+4. Create a new blog post from the add blog page.
+5. Open a blog to view the full post and add comments.
 
 ## Screenshots
 
-Add screenshots to `public/images` and reference them here. Example:
-
-![Home](/public/images/home.png)
-
-Screens to include:
-
-- Home page
-- Sign in / Sign up
-- Create blog
-- Blog details
-
-## Future Improvements
-
-- User profiles
-- Categories and tags
-- Like / bookmark system
-- Rich-text editor for posts
-- Search and filtering
-
-## Contributing
-
-Contributions welcome — please open an issue or submit a PR. Follow these steps:
-
-1. Fork the repo
-2. Create a feature branch
-3. Make your changes and add tests
-4. Open a pull request
+![Home page](public/images/home.png)
 
 ## License
 
-This project is released under the MIT License.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 

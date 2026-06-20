@@ -1,0 +1,7 @@
+.text-limit {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;   /* Show only 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* color: red; */
+}

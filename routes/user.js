@@ -15,18 +15,22 @@ router.get("/signout",(req,res)=>{
 
 router.post("/signup",async (req, res) => {
   const { fullName, email, password } = req.body;
-  await User.create({
-    fullName,email,password
-  })
-  return res.redirect("/")
+  const user = await User.findOne({email:email})
+  if(user){
+    return res.render("signup",{error:"User already exist with this email."})
+  }
+  else{
+    await User.create({
+      fullName,email,password
+    })
+  }
+  return res.redirect("/user/signin")
 });
 router.post("/signin",async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const token = await User.matchedPasswordAndGenerateToken(email,password)
-  
-    // console.log("token: ",token);
     
     return res.cookie('token',token).redirect("/")
   } catch (error) {

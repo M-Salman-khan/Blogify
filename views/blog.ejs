@@ -3,15 +3,15 @@
 
 <head>
   <%- include('./partials/head') %>
-  <title>Blog</title>
+  <title><%= blog.title %></title>
 </head>
 
 <body>
   <%- include('./partials/nav') %>
     <div class="container mt-3">
         <h2><%- blog.title %></h2>
-        <img src="<%- blog.coverImageUrl %>" width="600px">
-        <pre class="mt-5"><%- blog.body %></pre>
+        <img src="<%= blog.coverImageUrl %>" width="600px">
+        <p class="mt-5 lh-base fw-light"><%- blog.body %></p>
 
     </div>
     <div class="container d-flex align-items-center">
@@ -44,10 +44,15 @@
       <div class="container mt-3">
       <% if (comments) { %>
           <% comments.forEach(comment => {%>
-            <br class="container d-flex align-items-center">
+            
+            <div class="container d-flex align-items-center">
+              
               <img src="<%- comment.createdBy.profileImageUrl %>" width="60px">
-              <p class="p-0 m-0"><%= comment.content %>
-              <p>By: <%= comment.createdBy.fullName %></p>
+              <div>
+                <p class="p-0 m-0"><%= comment.content %>
+                <p  class="p-0 m-0 small text-muted">By: <%= comment.createdBy.fullName %></p>
+              </div>
+              </div>
             
             <% }); %>
             <% } %>
